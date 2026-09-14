@@ -64,7 +64,9 @@ module.exports.renderEditListingForm = async (req, res) => {
     }
 
     let imgUrl = editListing.image.url;
-    imgUrl = imgUrl.replace("/upload", "/upload/w_250");
+    if(imgUrl && imgUrl.includes("/upload")){
+      imgUrl = imgUrl.replace("/upload", "/upload/w_250");
+    }
     res.render("listings/edit.ejs", { editListing, imgUrl });
   };
 

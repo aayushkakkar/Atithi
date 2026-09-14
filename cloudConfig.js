@@ -12,6 +12,7 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'atithi_DEV',
     allowedFormats : ["jpg", "jpeg", "png"],
+    secure: true, // Forces HTTPS URLs
   },
 });
 
