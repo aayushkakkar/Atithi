@@ -83,12 +83,83 @@ node app.js
 
 ```text
 Atithi/
-├── controllers/       # Route logic and request handlers
-├── init/              # Database seeding scripts
-├── models/            # Mongoose models (Listing, Review, User)
-├── routes/            # Express router files
-├── utils/             # Error handling utilities
-├── views/             # EJS layout and template files
-├── app.js             # Application entry point
-└── cloudConfig.js     # Cloudinary and Multer configuration
+├── controllers/
+│   ├── helpControl.js         # Logic for help and contact forms
+│   ├── listingControl.js      # Controller logic for listing CRUD operations
+│   ├── reviewControl.js       # Controller logic for reviews and ratings
+│   └── userControl.js         # Controller logic for user auth actions
+├── init/
+│   ├── data.js                # Initial dataset for seeding listings
+│   └── index.js               # Database seeding execution script
+├── models/
+│   ├── contactMsgSchema.js    # Mongoose schema for contact messages
+│   ├── listingSchema.js       # Schema for listings (price, location, image, owner)
+│   ├── reviewSchema.js        # Schema for listing reviews and ratings
+│   └── userSchema.js          # Passport-enabled user account schema
+├── public/
+│   ├── css/
+│   │   ├── ratings.css        # Custom CSS for star rating components
+│   │   └── styles.css         # Main application stylesheet
+│   ├── images/
+│   │   ├── atithiLogo.png     # Primary branding logo
+│   │   ├── logo.png           # General logo asset
+│   │   └── smollLogo.png      # Compact logo for navigation bar
+│   └── js/
+│       ├── map.js             # Mapbox map initialization script
+│       └── script.js          # Client-side form validation scripts
+├── routes/
+│   ├── help.js                # Express router for help and policy pages
+│   ├── listing.js             # Express router for homestay listings
+│   ├── review.js              # Express router for listing reviews
+│   └── user.js                # Express router for user authentication
+├── utils/
+│   ├── expressError.js        # Custom Express error class
+│   └── wrapAsync.js           # Utility function to catch asynchronous errors
+├── views/
+│   ├── help/
+│   │   ├── contact.ejs        # Contact form template
+│   │   ├── privacy.ejs        # Privacy policy page
+│   │   └── terms.ejs          # Terms and conditions page
+│   ├── includes/
+│   │   ├── flash.ejs          # Partial template for flash messages
+│   │   ├── footer.ejs         # Global footer component
+│   │   └── navbar.ejs         # Global navigation header
+│   ├── layouts/
+│   │   └── boilerplate.ejs    # Master HTML layout structure
+│   ├── listings/
+│   │   ├── create.ejs         # New listing creation form
+│   │   ├── edit.ejs           # Listing update form
+│   │   ├── error.ejs          # Global error view template
+│   │   ├── index.ejs          # All listings catalog page
+│   │   └── show.ejs           # Detailed individual listing page
+│   ├── users/
+│   │   ├── login.ejs          # User login form
+│   │   └── signup.ejs         # User registration form
+│   └── homepage.ejs           # Landing page template
+├── .env                       # Local environment configuration file
+├── .gitignore                 # Git ignore directives
+├── app.js                     # Primary Express server application
+├── cloudConfig.js             # Cloudinary storage and Multer integration
+├── middleware.js              # Authorization and schema validation middleware
+├── package.json               # Dependencies and scripts manifest
+└── schema.js                  # Joi validation schemas for listings and reviews
 ```
+## Screenshots
+
+| Homepage Catalog | Detailed Listing View |
+| :---: | :---: |
+| ![Homepage](public/images/atithiLogo.png) | ![Listing Details](public/images/logo.png) |
+
+| Add New Homestay | Interactive Map Location |
+| :---: | :---: |
+| ![Create Listing](public/images/logo.png) | ![Map Navigation](public/images/smollLogo.png) |
+
+> Replace the image paths above with actual screenshot assets or links hosted on GitHub/Cloudinary.
+
+## Future Scope
+
+* Pan-India Expansion: Onboard verified hosts across various Indian states, with a focus on regional heritage sites, eco-stays, and rural tourism.
+* Integrated Booking & Payments: Implement secure payment gateway integration (Razorpay / UPI) to handle real-time reservations, security deposits, and host payouts.
+* Host Identity Verification: Incorporate KYC verification for hosts to build trust and safety for incoming travelers.
+* Localization & Regional Languages: Add multi-language support (Hindi and regional languages) so local hosts in tier-2, tier-3, and rural areas can easily manage listings.
+* Cultural Experiences & Workshops: Expand listing offerings beyond accommodations to include authentic local food workshops, artisan crafts, and guided regional tours hosted by locals.
