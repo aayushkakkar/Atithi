@@ -7,7 +7,7 @@ const expressError = require("./utils/expressError.js");
 module.exports.isLoggedIn = (req, res, next) =>  {
     if (!req.isAuthenticated()) {
         req.flash("error", "You need to be logged in");
-        return res.redirect("/login");
+        return res.redirect("/user/login");
     }
     next();
 };

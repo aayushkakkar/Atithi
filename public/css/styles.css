@@ -6,54 +6,84 @@ body{
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .container, main{
     flex: 1 0 auto;
 }
 .navbar {
-    height: 5rem;
-    background-color: white;
-    font-weight: 500;
+    background-color: white !important;
+    z-index: 1030;
 }
 
 .nav-link{
     color: #222222 !important;
 }
 
-.fa-door-open{
-    color: red;
+.nav-search-wrapper{
+    max-width: 420px;
 }
 
-footer{
-    background-color: #ebebeb;
-    flex-shrink: 0;
-}
-.f-info-links a{
-    text-decoration: none;
-    color: #222222;
-    margin-right: 1rem;
-}
-.f-info-links a:hover{
-    text-decoration: underline;
-}
-
-.f-info{
-    display: flex;
-    height: 6rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-evenly;
-    text-align: center;
-}
-
-.f-info-links, .f-info-socials{
+.nav-search-form{
     width: 100%;
-    text-align: center;
+    max-width: 420px;
 }
-.f-info-socials i{
-    font-size: 1.5rem;
-    margin-right: 1rem;
+@media (max-width : 768px){
+    .navbar-collapse{
+        background-color: white !important;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 1rem 1.5rem;
+    }
+}
+
+.form-control.search-input:focus{
+    border-color: #e9214f;
+    box-shadow: 0 0 0 0.25rem rgba(233, 33, 79, 0.15);
+}
+
+/* Footer Links */
+.f-info-links a {
+  text-decoration: none;
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.f-info-links a:hover {
+  color: #e9214f; /* Atithi theme color */
+  text-decoration: underline;
+}
+
+.f-info-links .link-divider {
+  color: #adb5bd;
+  margin: 0 0.5rem;
+}
+
+/* Social Media Icons */
+.f-info-socials a {
+  color: #495057;
+  font-size: 1.35rem;
+  margin-left: 0.75rem;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.f-info-socials a:first-child {
+  margin-left: 0;
+}
+
+.f-info-socials a:hover {
+  color: #e9214f;
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
 .card{
@@ -87,6 +117,20 @@ footer{
     transition: all 0.3s ease;
     box-shadow: 0px 4px 15px rgba(230, 30, 77, 0.2);
 }
+.btn-search{
+    background: linear-gradient(135deg, #ff385c 0%, #e61e4d 100%) !important;
+    color: white !important;
+    border: none !important;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.btn-search:hover{
+    color: white ;
+    opacity: 0.92;
+    transform: translateY(-1px);   
+}
+.btn-search:active{
+    transform: translateY(0);
+}
 .showImg{
     height: 70vh;
     object-fit: cover;
@@ -97,4 +141,7 @@ footer{
     width: 100%;
     height: 500px;
     border-radius: 1.2rem;
+}
+.atithi-red{
+    color : #e9214f !important;
 }

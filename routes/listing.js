@@ -30,6 +30,8 @@ router
   wrapAsync(listingController.createNewListing),
 );
 
+router.get("/search", wrapAsync(listingController.searchListings));
+
 //show listing
 router.get(
   "/:id",

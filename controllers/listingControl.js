@@ -34,6 +34,15 @@ module.exports.createNewListing = async (req, res) => {
     res.redirect("/listings");
   };
 
+module.exports.searchListings = async(req, res) => {
+  let {q} = req.query;
+  let allListings = await Listing.find({
+    title : { $regex:q , $options:"i"}
+  });
+  res.render("listings/index.ejs", {allListings});
+
+}
+
 module.exports.showListing = async (req, res) => {
     let { id } = req.params;
     const selectedListing = await Listing.findById(id)

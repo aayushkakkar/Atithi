@@ -9,7 +9,7 @@ const app = express();
 
 const mongoose = require("mongoose");
 
-// const MongoUrl = "mongodb://127.0.0.1:27017/atithiDB";
+// const dbUrl = "mongodb://127.0.0.1:27017/atithiDB";
 const dbUrl = process.env.ATLASDB_URL;
 async function main(){
     await mongoose.connect(dbUrl);
@@ -73,7 +73,7 @@ const expressError = require("./utils/expressError.js");
 const listingRoutes = require("./routes/listing.js");
 const reviewRoutes = require("./routes/review.js");
 const userRoutes = require("./routes/user.js");
-
+const helpRoutes = require("./routes/help.js");
 
 
 main().then( (result) => {
@@ -92,8 +92,7 @@ app.use((req, res, next) => {
 
 //root route
 app.get("/", (req, res) => {
-    res.send(`<h1>Atithi</h1>
-    <h2>Book not a Stay, But an Experience with us</h2>`);
+    res.render("homepage.ejs");
 });
 
 //all listing routes
@@ -102,7 +101,9 @@ app.use("/listings", listingRoutes);
 //review routes
 app.use("/listings/:id/reviews", reviewRoutes);
 
-app.use("/", userRoutes);
+app.use("/user", userRoutes);
+
+app.use("/help", helpRoutes);
 
 // app.all("*", (req, res, next) => {
 //     next(new expressError(404, "Page Not Found"));
@@ -120,5 +121,5 @@ app.use( (err, req, res, next) => {
 });
 
 app.listen( 8080, () => {
-    console.log("app listening on port 8080");
+    console.log("Server is live");
 });
