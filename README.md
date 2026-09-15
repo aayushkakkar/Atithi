@@ -1,4 +1,4 @@
-# 🏡 Atithi — Homestay & Rental Platform
+# 🏡 Atithi Sanskriti — Homestay & Cultural Platform
 
 > Discover local *sanskriti*, authentic regional food, and firsthand cultural experiences through unique stays.
 
@@ -62,7 +62,7 @@ SECRET=your_express_session_secret
 CLOUD_NAME=your_cloudinary_cloud_name
 CLOUD_API_KEY=your_cloudinary_api_key
 CLOUD_API_SECRET=your_cloudinary_api_secret
-MAPBOX_TOKEN=your_mapbox_access_token
+MAP_TOKEN=your_mapbox_access_token
 
 ```
 
@@ -144,6 +144,24 @@ Atithi/
 ├── package.json               # Dependencies and scripts manifest
 └── schema.js                  # Joi validation schemas for listings and reviews
 ```
+## Database Schema & Data Models
+
+Atithi utilizes MongoDB with Mongoose ODM to model relational data using document referencing.
+
+### Schemas
+
+* User Schema: Stores user credentials (`email`, `username`) and handles password security via hashing and salting.
+* Listing Schema: Stores homestay details (`title`, `description`, `price`, `location`, `country`), GeoJSON coordinates for Mapbox, Cloudinary image details (`url`, `filename`), and references to the owner (`User`) and reviews (`Review`).
+* Review Schema: Stores feedback details (`rating`, `comment`, `createdAt`) and references the review author (`User`).
+* Contact Message Schema: Stores user inquiries (`email`, `message`, category) regarding hosting, guest queries, or bug reports.
+
+### Relationships
+
+* User -> Listing (One-to-Many): One user can create and own multiple listings.
+* User -> Review (One-to-Many): One user can write multiple reviews across different listings.
+* Listing -> Review (One-to-Many): One listing can hold references to multiple guest reviews.
+* User -> Contact Message (One-to-Many): One user or visitor can submit multiple support messages.
+  
 ## Screenshots
 
 | Homepage Catalog | Detailed Listing View |
