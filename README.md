@@ -9,6 +9,24 @@
 While traveling, I realized that modern travel often misses the heart of local cultures, traditions, and authentic regional food. **Atithi** was born out of a personal desire to bridge that gap—creating a platform that connects travelers directly with local hosts to promote and experience rich local *sanskriti* firsthand.
 
 ---
+## Deployment
+
+* Live Link: https://atithi-o7pu.onrender.com/
+* Hosting Platform: Render
+
+## Screenshots
+
+| Homepage Catalog | Detailed Listing View |
+| :---: | :---: |
+| <img src="public/images/Screenshot_homepage.png" width="100%"> | <img src="public/images/Screenshot_listing.png" width="48%"> <img src="public/images/Screenshot_ListingloggedIn.png" width="48%"> |
+
+| Add New Homestay | Interactive Map Location |
+| :---: | :---: |
+| <img src="public/images/Screenshot_addListing.png" width="100%"> | <img src="public/images/Screenshot_map.png" width="100%"> |
+
+| Reviews & Ratings Section |
+| :---: |
+| <img src="public/images/Screenshot_reviews.png" width="100%"> |
 
 ## Key Features & Technical Implementations
 
@@ -162,17 +180,7 @@ Atithi utilizes MongoDB with Mongoose ODM to model relational data using documen
 * Listing -> Review (One-to-Many): One listing can hold references to multiple guest reviews.
 * User -> Contact Message (One-to-Many): One user or visitor can submit multiple support messages.
   
-## Screenshots
 
-| Homepage Catalog | Detailed Listing View |
-| :---: | :---: |
-| ![Homepage](public/images/atithiLogo.png) | ![Listing Details](public/images/logo.png) |
-
-| Add New Homestay | Interactive Map Location |
-| :---: | :---: |
-| ![Create Listing](public/images/logo.png) | ![Map Navigation](public/images/smollLogo.png) |
-
-> Replace the image paths above with actual screenshot assets or links hosted on GitHub/Cloudinary.
 
 ## Future Scope
 
